@@ -1,8 +1,8 @@
 // @ts-check
 
 import { Client } from 'boardgame.io/react';
-import { Cerberus } from './Game';
-import { CerberusField } from './Board';
+import { Cerberus } from './Game.tsx';
+// import { CerberusField } from './Board';
 
 const App = Client({
   game: Cerberus,
