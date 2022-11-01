@@ -1,6 +1,7 @@
 // @ts-check
 
 import { INVALID_MOVE } from 'boardgame.io/core';
+import { card } from "./Cards.tsx";
 
 export const Cerberus = {
   setup: () => ({ cells: Array(9).fill(null) }),
