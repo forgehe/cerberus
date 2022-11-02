@@ -53,11 +53,25 @@ function shuffle(array) {
   return array;
 }
 
+function setupPlayers(numPlayers) {
+  const player = [];
+  for (let i = 0; i < numPlayers; i++) {
+    const playerInfo = {
+      deck: startingDeck(),
+      hand: [],
+      discard: [],
+      heroAtk: null,
+      heroDef: null,
+    };
+    player.push(playerInfo);
+  }
+  return player;
+}
+
 export const Cerberus = {
   setup: (ctx, setupData) => ({
     ...INITIAL_BOARD,
-    startingDeck: startingDeck(),
-    hand: Array(ctx.numPlayers).fill(0),
+    player: setupPlayers(ctx.numPlayers || 2),
   }),
 
   turn: {
