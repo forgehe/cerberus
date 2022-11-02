@@ -2,6 +2,7 @@
 
 import { INVALID_MOVE } from "boardgame.io/core";
 import { card } from "./Cards.tsx";
+import { shuffle } from "./Functions.tsx";
 
 const generateStandardDeck = () => {
   const Deck = [];
@@ -9,11 +10,6 @@ const generateStandardDeck = () => {
   Deck.push(card.kick1);
   Deck.push(card.kick2);
   return Deck;
-};
-
-const INITIAL_BOARD = {
-  kickDeck: new Array(10).fill(card.kick),
-  standardDeck: generateStandardDeck(),
 };
 
 const startingDeck = () => {
@@ -29,30 +25,6 @@ const startingDeck = () => {
   return Deck;
 };
 
-// function startingDeck() {
-//   return [];
-// }
-
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex !== 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
 function setupPlayers(numPlayers) {
   const player = [];
   for (let i = 0; i < numPlayers; i++) {
@@ -63,10 +35,23 @@ function setupPlayers(numPlayers) {
       heroAtk: null,
       heroDef: null,
     };
+    playerInfo.hand = playerInfo.hand.concat(
+      playerInfo.deck.slice(
+        playerInfo.deck.length - 6,
+        playerInfo.deck.length - 1
+      )
+    );
+    playerInfo.deck = playerInfo.deck.slice(0, playerInfo.deck.length - 5);
     player.push(playerInfo);
   }
   return player;
 }
+
+const INITIAL_BOARD = {
+  kickDeck: new Array(10).fill(card.kick),
+  standardDeck: generateStandardDeck(),
+  weaknessDeck: new Array(20).fill(card.weakness),
+};
 
 export const Cerberus = {
   setup: (ctx, setupData) => ({
