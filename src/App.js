@@ -1,13 +1,13 @@
 // @ts-check
 
-import { Client } from 'boardgame.io/react';
-import { Cerberus } from './Game.tsx';
-// import { CerberusField } from './Board';
-import { Local } from 'boardgame.io/multiplayer';
+import { Client } from "boardgame.io/react";
+import { Cerberus } from "./Game.tsx";
+import { CerberusField } from "./Board.tsx";
+import { Local } from "boardgame.io/multiplayer";
 
 const CerberusClient = Client({
   game: Cerberus,
-  // board: CerberusField,
+  board: CerberusField,
   // multiplayer: Local(),
 });
 
@@ -19,6 +19,5 @@ const App = () => (
     <CerberusClient playerID="3" /> */}
   </div>
 );
-
 
 export default App;
