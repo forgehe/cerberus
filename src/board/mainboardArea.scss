@@ -1,0 +1,33 @@
+.mainboard-area {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  min-width: 40em;
+  min-height: 8em;
+  
+  .mainboard-area_dkw-container {
+    width: 32em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    div {
+      height: 33%;
+    }
+  }
+
+
+  .mainboard-area_shop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .shop_card {
+      width: 16em;
+      height: 24em;
+    }
+  }
+
+
+}
+
+

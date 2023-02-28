@@ -22,7 +22,10 @@ let opponentAreaContent = (ctx) => {
         className={"opponent-area__opponent-container" + `opponent-${i + 1}`}
       >
         <p className={"opponent-container__opponent-name"}>{i + 1}</p>
-        <div className="opponent-playmat" style={opponentPlaymatStyle}>
+        <div
+          className="opponent-playmat"
+          style={opponentPlaymatStyle as React.CSSProperties}
+        >
           <div className="opponent-hero"></div>
           <div className="opponent-deck"></div>
           <div className="opponent-discard"></div>
