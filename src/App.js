@@ -4,6 +4,7 @@ import { Client } from "boardgame.io/react";
 import { Cerberus } from "./Game.tsx";
 import { CerberusField } from "./Board.tsx";
 import { Local } from "boardgame.io/multiplayer";
+import "normalize.css";
 
 const CerberusClient = Client({
   game: Cerberus,
